@@ -9,5 +9,5 @@ PAIR = 9172800
 HIGHCARS = 311875200
 
 # call is a list of Cards
-def IV(numCards, call):
-    for curr in call:
+# def IV(numCards, call):
+#     for curr in call:

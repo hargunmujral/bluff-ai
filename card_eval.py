@@ -126,7 +126,7 @@ class Poker (object):
         else:
             self.straight(sortedHand)
 
-    def traight(self, hand):
+    def straight(self, hand):
         sortedHand = sorted(hand, reverse=True)
         flag = True
         h = 5
@@ -222,5 +222,79 @@ def main():
 
     print('\nHand %d wins' % (maxindex+1))
 
+def fourOfAKind(hand):
+    sortedHand = sorted(hand, reverse=True)
+    Currank = sortedHand[1].rank
+    count = 0
+    for card in sortedHand:
+        if card.rank == Currank:
+            count += 1
+    return not count < 4
 
-main()
+def fullHouse(hand):
+    sortedHand = sorted(hand, reverse=True)
+    mylist = []
+    for card in sortedHand:
+        mylist.append(card.rank)
+    rank1 = sortedHand[0].rank
+    rank2 = sortedHand[-1].rank
+    num_rank1 = mylist.count(rank1)
+    num_rank2 = mylist.count(rank2)
+    return (num_rank1 == 2 and num_rank2 == 3) or (num_rank1 == 3 and num_rank2 == 2)
+
+def straight(hand):
+    sortedHand = sorted(hand, reverse=True)
+    flag = True
+    Currank = sortedHand[0].rank
+    for card in sortedHand:
+        if card.rank != Currank:
+            flag = False
+            break
+        else:
+            Currank -= 1
+    return flag
+
+def threeOfAKind(hand):
+    sortedHand = sorted(hand, reverse=True)
+    Currank = sortedHand[2].rank
+    mylist = []
+    for card in sortedHand:
+        mylist.append(card.rank)
+    return mylist.count(Currank) == 3
+
+def twoPair(hand):
+    sortedHand = sorted(hand, reverse=True)
+    rank1 = sortedHand[1].rank
+    rank2 = sortedHand[3].rank
+    mylist = []
+    for card in sortedHand:
+        mylist.append(card.rank)
+    return mylist.count(rank1) == 2 and mylist.count(rank2) == 2
+
+def onePair(hand):
+    sortedHand = sorted(hand, reverse=True)
+    mylist = []
+    mycount = []
+    for card in sortedHand:
+        mylist.append(card.rank)
+    for each in mylist:
+        count = mylist.count(each)
+        mycount.append(count)
+    return mycount.count(2) == 2 and mycount.count(1) == 3
+
+def highCard(hand):
+    sortedHand = sorted(hand, reverse=True)
+    mylist = []
+    for card in sortedHand:
+        mylist.append(card.rank)
+    return True
+
+print(fourOfAKind([Card(1), Card(1), Card(1), Card(1)]))
+print(fullHouse([Card(2), Card(2), Card(1), Card(1), Card(1)]))
+print(straight([Card(1), Card(2), Card(3), Card(4), Card(5)]))
+print(threeOfAKind([Card(1), Card(1), Card(1), Card(2), Card(3)]))
+print(twoPair([Card(1), Card(1), Card(2), Card(2), Card(3)]))
+print(onePair([Card(1), Card(1), Card(2), Card(3), Card(4)]))
+print(highCard([Card(1), Card(2), Card(3), Card(4), Card(5)]))
+
+# main()
