@@ -1,5 +1,3 @@
-import math
-import string
 import random
 
 
@@ -69,9 +67,9 @@ class Poker (object):
         self.tlist = []
         numCards_in_Hand = 5
 
-        for i in range(numHands):
+        for _ in range(numHands):
             hand = []
-            for j in range(numCards_in_Hand):
+            for _ in range(numCards_in_Hand):
                 hand.append(self.deck.deal())
             self.hands.append(hand)
 
@@ -89,8 +87,7 @@ class Poker (object):
         ranklist = []
         for card in sortedHand:
             ranklist.append(card.rank)
-        c_sum = ranklist[0]*13**4+ranklist[1]*13**3 + \
-            ranklist[2]*13**2+ranklist[3]*13+ranklist[4]
+        c_sum = ranklist[0]*13**4+ranklist[1]*13**3 + ranklist[2]*13**2+ranklist[3]*13+ranklist[4]
         return c_sum
 
     def startGame(self, hand):
@@ -99,7 +96,6 @@ class Poker (object):
 
     def fourOfAKind(self, hand):
         sortedHand = sorted(hand, reverse=True)
-        flag = True
         h = 8
         Currank = sortedHand[1].rank
         count = 0
@@ -108,16 +104,13 @@ class Poker (object):
             if card.rank == Currank:
                 count += 1
         if not count < 4:
-            flag = True
             print('Four of a Kind')
             self.tlist.append(total_point)
-
         else:
             self.fullHouse(sortedHand)
 
     def fullHouse(self, hand):
         sortedHand = sorted(hand, reverse=True)
-        flag = True
         h = 7
         total_point = h*13**5+self.point(sortedHand)
         mylist = []
@@ -128,15 +121,12 @@ class Poker (object):
         num_rank1 = mylist.count(rank1)
         num_rank2 = mylist.count(rank2)
         if (num_rank1 == 2 and num_rank2 == 3) or (num_rank1 == 3 and num_rank2 == 2):
-            flag = True
             print('Full House')
             self.tlist.append(total_point)
-
         else:
-            flag = False
-            self.isStraight(sortedHand)
+            self.straight(sortedHand)
 
-    def isStraight(self, hand):
+    def traight(self, hand):
         sortedHand = sorted(hand, reverse=True)
         flag = True
         h = 5
@@ -157,7 +147,6 @@ class Poker (object):
 
     def threeOfAKind(self, hand):
         sortedHand = sorted(hand, reverse=True)
-        flag = True
         h = 4
         total_point = h*13**5+self.point(sortedHand)
         Currank = sortedHand[2].rank
@@ -165,17 +154,14 @@ class Poker (object):
         for card in sortedHand:
             mylist.append(card.rank)
         if mylist.count(Currank) == 3:
-            flag = True
             print("Three of a Kind")
             self.tlist.append(total_point)
 
         else:
-            flag = False
-            self.twoOfAKind(sortedHand)
+            self.twoPair(sortedHand)
 
-    def twoOfAKind(self, hand):
+    def twoPair(self, hand):
         sortedHand = sorted(hand, reverse=True)
-        flag = True
         h = 3
         total_point = h*13**5+self.point(sortedHand)
         rank1 = sortedHand[1].rank
@@ -184,17 +170,14 @@ class Poker (object):
         for card in sortedHand:
             mylist.append(card.rank)
         if mylist.count(rank1) == 2 and mylist.count(rank2) == 2:
-            flag = True
             print("Two Pair")
             self.tlist.append(total_point)
 
         else:
-            flag = False
-            self.oneOfAKind(sortedHand)
+            self.onePair(sortedHand)
 
-    def oneOfAKind(self, hand):
+    def onePair(self, hand):
         sortedHand = sorted(hand, reverse=True)
-        flag = True
         h = 2
         total_point = h*13**5+self.point(sortedHand)
         mylist = []
@@ -205,17 +188,13 @@ class Poker (object):
             count = mylist.count(each)
             mycount.append(count)
         if mycount.count(2) == 2 and mycount.count(1) == 3:
-            flag = True
             print("One Pair")
             self.tlist.append(total_point)
-
         else:
-            flag = False
             self.highCard(sortedHand)
 
     def highCard(self, hand):
         sortedHand = sorted(hand, reverse=True)
-        flag = True
         h = 1
         total_point = h*13**5+self.point(sortedHand)
         mylist = []
