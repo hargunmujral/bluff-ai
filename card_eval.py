@@ -223,6 +223,7 @@ def main():
     print('\nHand %d wins' % (maxindex+1))
 
 def fourOfAKind(hand):
+    if len(hand) < 4: return False
     sortedHand = sorted(hand, reverse=True)
     Currank = sortedHand[1].rank
     count = 0
@@ -232,6 +233,7 @@ def fourOfAKind(hand):
     return not count < 4
 
 def fullHouse(hand):
+    if len(hand) < 5: return False
     sortedHand = sorted(hand, reverse=True)
     mylist = []
     for card in sortedHand:
@@ -243,6 +245,7 @@ def fullHouse(hand):
     return (num_rank1 == 2 and num_rank2 == 3) or (num_rank1 == 3 and num_rank2 == 2)
 
 def straight(hand):
+    if len(hand) < 5: return False
     sortedHand = sorted(hand, reverse=True)
     flag = True
     Currank = sortedHand[0].rank
@@ -255,6 +258,7 @@ def straight(hand):
     return flag
 
 def threeOfAKind(hand):
+    if len(hand) < 3: return False
     sortedHand = sorted(hand, reverse=True)
     Currank = sortedHand[2].rank
     mylist = []
@@ -263,6 +267,7 @@ def threeOfAKind(hand):
     return mylist.count(Currank) == 3
 
 def twoPair(hand):
+    if len(hand) < 4: return False
     sortedHand = sorted(hand, reverse=True)
     rank1 = sortedHand[1].rank
     rank2 = sortedHand[3].rank
@@ -272,6 +277,7 @@ def twoPair(hand):
     return mylist.count(rank1) == 2 and mylist.count(rank2) == 2
 
 def onePair(hand):
+    if len(hand) < 2: return False
     sortedHand = sorted(hand, reverse=True)
     mylist = []
     mycount = []
@@ -283,6 +289,7 @@ def onePair(hand):
     return mycount.count(2) == 2 and mycount.count(1) == 3
 
 def highCard(hand):
+    if len(hand) < 1: return False
     sortedHand = sorted(hand, reverse=True)
     mylist = []
     for card in sortedHand:
@@ -292,7 +299,7 @@ def highCard(hand):
 print(fourOfAKind([Card(1), Card(1), Card(1), Card(1)]))
 print(fullHouse([Card(2), Card(2), Card(1), Card(1), Card(1)]))
 print(straight([Card(1), Card(2), Card(3), Card(4), Card(5)]))
-print(threeOfAKind([Card(1), Card(1), Card(1), Card(2), Card(3)]))
+print(threeOfAKind([Card(1), Card(1)]))
 print(twoPair([Card(1), Card(1), Card(2), Card(2), Card(3)]))
 print(onePair([Card(1), Card(1), Card(2), Card(3), Card(4)]))
 print(highCard([Card(1), Card(2), Card(3), Card(4), Card(5)]))
