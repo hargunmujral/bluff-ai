@@ -391,7 +391,7 @@ function renderOpponent(name, data) {
       return (
         '<div class="col s12 m2 opponentCard"><div class="card grey"><div class="card-content white-text"><span class="card-title">' +
         name +
-        ' (Fold)</span><p><div class="center-align"><div class="blankCard" id="opponent-card" /><div class="blankCard" id="opponent-card" /></div><br /><br /><br /><br /><br />' +
+        ' (Fold)</span><p><div class="center-align"><div class="blankCard" id="opponent-card" /></div><br /><br /><br /><br /><br />' +
         data.blind +
         '<br />' +
         data.text +
@@ -410,7 +410,7 @@ function renderOpponent(name, data) {
           return (
             '<div class="col s12 m2 opponentCard"><div class="card yellow darken-3"><div class="card-content black-text"><span class="card-title">' +
             name +
-            '<br />Check</span><p><div class="center-align"><div class="blankCard" id="opponent-card" /><div class="blankCard" id="opponent-card" /></div><br /><br /><br /><br /><br />' +
+            '<br />Check</span><p><div class="center-align"><div class="blankCard" id="opponent-card" /></div><br /><br /><br /><br /><br />' +
             data.blind +
             '<br />' +
             data.text +
@@ -427,7 +427,7 @@ function renderOpponent(name, data) {
           return (
             '<div class="col s12 m2 opponentCard"><div class="card yellow darken-3"><div class="card-content black-text"><span class="card-title">' +
             name +
-            '</span><p><div class="center-align"><div class="blankCard" id="opponent-card" /><div class="blankCard" id="opponent-card" /></div><br /><br /><br /><br /><br />' +
+            '</span><p><div class="center-align"><div class="blankCard" id="opponent-card" /></div><br /><br /><br /><br /><br />' +
             data.blind +
             '<br />' +
             data.text +
@@ -446,7 +446,7 @@ function renderOpponent(name, data) {
             name +
             '<br />Bet: $' +
             bet +
-            '</span><p><div class="center-align"><div class="blankCard" id="opponent-card" /><div class="blankCard" id="opponent-card" /></div><br /><br /><br /><br /><br />' +
+            '</span><p><div class="center-align"><div class="blankCard" id="opponent-card" /></div><br /><br /><br /><br /><br />' +
             data.blind +
             '<br /><br />' +
             data.text +
@@ -465,7 +465,7 @@ function renderOpponent(name, data) {
           return (
             '<div class="col s12 m2 opponentCard"><div class="card green darken-2" ><div class="card-content white-text"><span class="card-title">' +
             name +
-            '<br />Check</span><p><div class="center-align"><div class="blankCard" id="opponent-card" /><div class="blankCard" id="opponent-card" /></div><br /><br /><br /><br /><br />' +
+            '<br />Check</span><p><div class="center-align"><div class="blankCard" id="opponent-card" /></div><br /><br /><br /><br /><br />' +
             data.blind +
             '<br />' +
             data.text +
@@ -482,7 +482,7 @@ function renderOpponent(name, data) {
           return (
             '<div class="col s12 m2 opponentCard"><div class="card green darken-2" ><div class="card-content white-text"><span class="card-title">' +
             name +
-            '</span><p><div class="center-align"><div class="blankCard" id="opponent-card" /><div class="blankCard" id="opponent-card" /></div><br /><br /><br /><br /><br />' +
+            '</span><p><div class="center-align"><div class="blankCard" id="opponent-card" /></div><br /><br /><br /><br /><br />' +
             data.blind +
             '<br />' +
             data.text +
@@ -501,7 +501,7 @@ function renderOpponent(name, data) {
             name +
             '<br />Bet: $' +
             bet +
-            '</span><p><div class="center-align"><div class="blankCard" id="opponent-card" /><div class="blankCard" id="opponent-card" /></div><br /><br /><br /><br /><br />' +
+            '</span><p><div class="center-align"><div class="blankCard" id="opponent-card" /></div><br /><br /><br /><br /><br />' +
             data.blind +
             '<br />' +
             data.text +
@@ -524,7 +524,7 @@ function renderOpponent(name, data) {
       return (
         '<div class="col s12 m2 opponentCard"><div class="card grey"><div class="card-content white-text"><span class="card-title">' +
         name +
-        ' (Fold)</span><p><div class="center-align"><div class="blankCard" id="opponent-card" /><div class="blankCard" id="opponent-card" /></div><br /><br /><br /><br /><br />' +
+        ' (Fold)</span><p><div class="center-align"><div class="blankCard" id="opponent-card" /></div><br /><br /><br /><br /><br />' +
         data.blind +
         '<br />' +
         data.text +
@@ -538,7 +538,7 @@ function renderOpponent(name, data) {
           return (
             '<div class="col s12 m2 opponentCard"><div class="card yellow darken-3"><div class="card-content black-text"><span class="card-title black-text">' +
             name +
-            '<br />Check</span><p><div class="center-align"><div class="blankCard" id="opponent-card" /><div class="blankCard" id="opponent-card" /></div><br /><br /><br /><br /><br />' +
+            '<br />Check</span><p><div class="center-align"><div class="blankCard" id="opponent-card" /></div><br /><br /><br /><br /><br />' +
             data.blind +
             '<br />' +
             data.text +
@@ -550,7 +550,7 @@ function renderOpponent(name, data) {
           return (
             '<div class="col s12 m2 opponentCard"><div class="card yellow darken-3"><div class="card-content black-text"><span class="card-title black-text">' +
             name +
-            '</span><p><div class="center-align"><div class="blankCard" id="opponent-card" /><div class="blankCard" id="opponent-card" /></div><br /><br /><br /><br /><br />' +
+            '</span><p><div class="center-align"><div class="blankCard" id="opponent-card" /></div><br /><br /><br /><br /><br />' +
             data.blind +
             '<br />' +
             data.text +
@@ -564,7 +564,7 @@ function renderOpponent(name, data) {
             name +
             '<br />Bet: $' +
             bet +
-            '</span><p><div class="center-align"><div class="blankCard" id="opponent-card" /><div class="blankCard" id="opponent-card" /></div><br /><br /><br /><br /><br />' +
+            '</span><p><div class="center-align"><div class="blankCard" id="opponent-card" /></div><br /><br /><br /><br /><br />' +
             data.blind +
             '<br /><br />' +
             data.text +
@@ -578,7 +578,7 @@ function renderOpponent(name, data) {
           return (
             '<div class="col s12 m2 opponentCard"><div class="card green darken-2" ><div class="card-content white-text"><span class="card-title">' +
             name +
-            '<br />Check</span><p><div class="center-align"><div class="blankCard" id="opponent-card" /><div class="blankCard" id="opponent-card" /></div><br /><br /><br /><br /><br />' +
+            '<br />Check</span><p><div class="center-align"><div class="blankCard" id="opponent-card" /></div><br /><br /><br /><br /><br />' +
             data.blind +
             '<br />' +
             data.text +
@@ -590,7 +590,7 @@ function renderOpponent(name, data) {
           return (
             '<div class="col s12 m2 opponentCard"><div class="card green darken-2" ><div class="card-content white-text"><span class="card-title">' +
             name +
-            '</span><p><div class="center-align"><div class="blankCard" id="opponent-card" /><div class="blankCard" id="opponent-card" /></div><br /><br /><br /><br /><br />' +
+            '</span><p><div class="center-align"><div class="blankCard" id="opponent-card" /></div><br /><br /><br /><br /><br />' +
             data.blind +
             '<br />' +
             data.text +
@@ -604,7 +604,7 @@ function renderOpponent(name, data) {
             name +
             '<br />Bet: $' +
             bet +
-            '</span><p><div class="center-align"><div class="blankCard" id="opponent-card" /><div class="blankCard" id="opponent-card" /></div><br /><br /><br /><br /><br />' +
+            '</span><p><div class="center-align"><div class="blankCard" id="opponent-card" /></div><br /><br /><br /><br /><br />' +
             data.blind +
             '<br />' +
             data.text +
@@ -635,7 +635,7 @@ function renderOpponentCards(name, data) {
         name +
         ' | Bet: $' +
         bet +
-        '</span><p><div class="center-align"><div class="blankCard" id="opponent-card" /><div class="blankCard" id="opponent-card" /></div><br /><br /><br /><br /><br /><br /></p></div><div class="card-action green darken-3 white-text center-align" style="font-size: 20px;">$' +
+        '</span><p><div class="center-align"><div class="blankCard" id="opponent-card" /></div><br /><br /><br /><br /><br /><br /></p></div><div class="card-action green darken-3 white-text center-align" style="font-size: 20px;">$' +
         data.money +
         ' (' +
         data.buyIns +
@@ -671,7 +671,7 @@ function renderOpponentCards(name, data) {
         name +
         ' | Bet: $' +
         bet +
-        '</span><p><div class="center-align"><div class="blankCard" id="opponent-card" /><div class="blankCard" id="opponent-card" /></div><br /><br /><br /><br /><br /><br /></p></div><div class="card-action green darken-3 white-text center-align" style="font-size: 20px;">$' +
+        '</span><p><div class="center-align"><div class="blankCard" id="opponent-card" /></div><br /><br /><br /><br /><br /><br /></p></div><div class="card-action green darken-3 white-text center-align" style="font-size: 20px;">$' +
         data.money +
         '</div></div></div>'
       );
