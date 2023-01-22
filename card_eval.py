@@ -87,7 +87,8 @@ class Poker (object):
         ranklist = []
         for card in sortedHand:
             ranklist.append(card.rank)
-        c_sum = ranklist[0]*13**4+ranklist[1]*13**3 + ranklist[2]*13**2+ranklist[3]*13+ranklist[4]
+        c_sum = ranklist[0]*13**4+ranklist[1]*13**3 + \
+            ranklist[2]*13**2+ranklist[3]*13+ranklist[4]
         return c_sum
 
     def startGame(self, hand):
@@ -204,7 +205,7 @@ class Poker (object):
         self.tlist.append(total_point)
 
 
-def main():
+def matchup():
     numHands = eval(input('Enter number of hands to play: '))
     while (numHands < 2 or numHands > 6):
         numHands = eval(input('Enter number of hands to play: '))
@@ -222,86 +223,49 @@ def main():
 
     print('\nHand %d wins' % (maxindex+1))
 
-def fourOfAKind(hand):
-    if len(hand) < 4: return False
-    sortedHand = sorted(hand, reverse=True)
-    Currank = sortedHand[1].rank
-    count = 0
-    for card in sortedHand:
-        if card.rank == Currank:
-            count += 1
-    return not count < 4
 
-def fullHouse(hand):
-    if len(hand) < 5: return False
-    sortedHand = sorted(hand, reverse=True)
-    mylist = []
-    for card in sortedHand:
-        mylist.append(card.rank)
-    rank1 = sortedHand[0].rank
-    rank2 = sortedHand[-1].rank
-    num_rank1 = mylist.count(rank1)
-    num_rank2 = mylist.count(rank2)
-    return (num_rank1 == 2 and num_rank2 == 3) or (num_rank1 == 3 and num_rank2 == 2)
+def detectRank(card):
+    if card == "A":
+        return 14
+    elif card == "K":
+        return 13
+    elif card == "Q":
+        return 12
+    elif card == "J":
+        return 11
+    # check between 2 and 10
+    elif 2 <= int(card) <= 10:
+        return int(card)
+    else:
+        # throw exception
+        raise Exception("Invalid card")
 
-def straight(hand):
-    if len(hand) < 5: return False
-    sortedHand = sorted(hand, reverse=True)
-    flag = True
-    Currank = sortedHand[0].rank
-    for card in sortedHand:
-        if card.rank != Currank:
-            flag = False
-            break
-        else:
-            Currank -= 1
-    return flag
 
-def threeOfAKind(hand):
-    if len(hand) < 3: return False
-    sortedHand = sorted(hand, reverse=True)
-    Currank = sortedHand[2].rank
-    mylist = []
-    for card in sortedHand:
-        mylist.append(card.rank)
-    return mylist.count(Currank) == 3
+def checkCustomHand(num):
+    hand = []
+    for i in range(num):
+        card = input('Enter card: ')
+        rank = detectRank(card)
+        hand.append(Card(rank))
+    game = Poker(1)
+    game.startGame(hand)
 
-def twoPair(hand):
-    if len(hand) < 4: return False
-    sortedHand = sorted(hand, reverse=True)
-    rank1 = sortedHand[1].rank
-    rank2 = sortedHand[3].rank
-    mylist = []
-    for card in sortedHand:
-        mylist.append(card.rank)
-    return mylist.count(rank1) == 2 and mylist.count(rank2) == 2
-
-def onePair(hand):
-    if len(hand) < 2: return False
-    sortedHand = sorted(hand, reverse=True)
-    mylist = []
-    mycount = []
-    for card in sortedHand:
-        mylist.append(card.rank)
-    for each in mylist:
-        count = mylist.count(each)
-        mycount.append(count)
-    return mycount.count(2) == 2 and mycount.count(1) == 3
-
-def highCard(hand):
-    if len(hand) < 1: return False
-    sortedHand = sorted(hand, reverse=True)
-    mylist = []
-    for card in sortedHand:
-        mylist.append(card.rank)
-    return True
-
-print(fourOfAKind([Card(1), Card(1), Card(1), Card(1)]))
-print(fullHouse([Card(2), Card(2), Card(1), Card(1), Card(1)]))
-print(straight([Card(1), Card(2), Card(3), Card(4), Card(5)]))
-print(threeOfAKind([Card(1), Card(1)]))
-print(twoPair([Card(1), Card(1), Card(2), Card(2), Card(3)]))
-print(onePair([Card(1), Card(1), Card(2), Card(3), Card(4)]))
-print(highCard([Card(1), Card(2), Card(3), Card(4), Card(5)]))
 
 # main()
+
+# checkCustomHand()
+
+def main():
+    choice = input('Enter 1 to play a game or 2 to check a custom hand: ')
+    if choice == '1':
+        matchup()
+    elif choice == '2':
+        numOfCards = int(input('Enter number of cards: '))
+        if (numOfCards > 52 or numOfCards < 1):
+            print('Invalid choice')
+        checkCustomHand(numOfCards)
+    else:
+        print('Invalid choice')
+
+
+main()
