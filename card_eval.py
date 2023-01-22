@@ -217,7 +217,33 @@ def matchup():
         curHand = game.hands[i]
         print("Hand " + str(i+1) + ": ", end="")
         game.startGame(curHand)
+    print(game.tlist)
+    maxpoint = max(game.tlist)
+    maxindex = game.tlist.index(maxpoint)
 
+    print('\nHand %d wins' % (maxindex+1))
+
+def customMatchup():
+    num = int(input('Enter number of hands: '))
+    hands = []
+    for i in range(num):
+      hand = []
+      print('Enter cards for hand %d' % (i+1))
+      for i in range(5):
+          card = input('Enter card: ')
+          rank = detectRank(card)
+          hand.append(Card(rank))
+      hands.append(hand)
+
+    numHands = len(hands)
+    game = Poker(numHands)
+    # game.play()
+
+    print('\n')
+    for i, hand in enumerate(hands):
+        print("Hand " + str(i+1) + ": ", end="")
+        game.startGame(hand)
+    print(game.tlist)
     maxpoint = max(game.tlist)
     maxindex = game.tlist.index(maxpoint)
 
@@ -249,18 +275,3 @@ def checkCustomHand(num):
         hand.append(Card(rank))
     game = Poker(1)
     game.startGame(hand)
-
-def main():
-    choice = input('Enter 1 to play a game or 2 to check a custom hand: ')
-    if choice == '1':
-        matchup()
-    elif choice == '2':
-        numOfCards = int(input('Enter number of cards: '))
-        if (numOfCards > 52 or numOfCards < 1):
-            print('Invalid choice')
-        checkCustomHand(numOfCards)
-    else:
-        print('Invalid choice')
-
-
-main()
