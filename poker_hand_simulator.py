@@ -40,7 +40,7 @@ class Card(object):
         return (self.rank >= other.rank)
 
 
-class Deck (object):
+class Deck(object):
     def __init__(self):
         self.deck = []
         for rank in 4*Card.RANKS:
@@ -86,8 +86,7 @@ class Poker(object):
         sortedHand = sorted(hand, reverse=True)
         self.fourOfAKind(sortedHand)
 
-    def fourOfAKind(self, hand):
-        sortedHand = sorted(hand, reverse=True)
+    def fourOfAKind(self, sortedHand):
         mylist = []
         for card in sortedHand:
             mylist.append(card.rank)
@@ -99,8 +98,7 @@ class Poker(object):
         else:
             self.fullHouse(sortedHand)
 
-    def fullHouse(self, hand):
-        sortedHand = sorted(hand, reverse=True)
+    def fullHouse(self, sortedHand):
         mylist = []
         for card in sortedHand:
             mylist.append(card.rank)
@@ -120,8 +118,7 @@ class Poker(object):
             self.straight(sortedHand)
 
     lowStraight = [14, 5, 4, 3, 2]
-    def straight(self, hand):
-        sortedHand = sorted(hand, reverse=True)
+    def straight(self, sortedHand):
         if [card.rank for card in sortedHand] == self.lowStraight:
             # print('Straight')
             self.tlist.append(14**4*5)
@@ -142,8 +139,7 @@ class Poker(object):
         else:
             self.threeOfAKind(sortedHand)
 
-    def threeOfAKind(self, hand):
-        sortedHand = sorted(hand, reverse=True)
+    def threeOfAKind(self, sortedHand):
         Currank = sortedHand[2].rank
         mylist = []
         for card in sortedHand:
@@ -155,8 +151,7 @@ class Poker(object):
         else:
             self.twoPair(sortedHand)
 
-    def twoPair(self, hand):
-        sortedHand = sorted(hand, reverse=True)
+    def twoPair(self, sortedHand):
         rank1 = sortedHand[1].rank
         rank2 = sortedHand[3].rank
         mylist = []
@@ -169,8 +164,7 @@ class Poker(object):
         else:
             self.onePair(sortedHand)
 
-    def onePair(self, hand):
-        sortedHand = sorted(hand, reverse=True)
+    def onePair(self, sortedHand):
         mylist = defaultdict(int)
         for card in sortedHand:
             mylist[card.rank] += 1
@@ -181,8 +175,7 @@ class Poker(object):
             return
         self.highCard(sortedHand)
 
-    def highCard(self, hand):
-        sortedHand = sorted(hand, reverse=True)
+    def highCard(self, sortedHand):
         mylist = []
         for card in sortedHand:
             mylist.append(card.rank)
@@ -228,7 +221,7 @@ def handPercentage(runs):
 
 # main()
 
-def simulation(runs=1000000):
+def simulation(runs=100000):
 
     for i in range(runs):
         runRandomGames()
