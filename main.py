@@ -13,5 +13,3 @@ def main():
         ce.customMatchup()
     else:
         print('Invalid choice')
-
-main()

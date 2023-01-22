@@ -60,7 +60,7 @@ class Deck(object):
             return self.deck.pop(0)
 
 
-class Poker(object):
+class Bluff(object):
     def __init__(self, numHands):
         self.deck = Deck()
         self.deck.shuffle()
@@ -188,7 +188,7 @@ def main():
     numHands = eval(input('Enter number of hands to play: '))
     while (numHands < 2 or numHands > 6):
         numHands = eval(input('Enter number of hands to play: '))
-    game = Poker(numHands)
+    game = Bluff(numHands)
     game.play()
 
     print('\n')
@@ -204,7 +204,7 @@ def main():
 
 
 def runRandomGames():
-    game = Poker(1)
+    game = Bluff(1)
     game.play()
     game.startGame(game.hands[0])
 

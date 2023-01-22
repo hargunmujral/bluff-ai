@@ -40,7 +40,7 @@ class Card(object):
         return (self.rank >= other.rank)
 
 
-class Deck (object):
+class Deck(object):
     def __init__(self):
         self.deck = []
         for rank in 4*Card.RANKS:
@@ -60,7 +60,7 @@ class Deck (object):
             return self.deck.pop(0)
 
 
-class Poker(object):
+class Bluff(object):
     def __init__(self, numHands):
         self.deck = Deck()
         self.deck.shuffle()
@@ -178,7 +178,7 @@ def matchup():
     numHands = eval(input('Enter number of hands to play: '))
     while (numHands < 2 or numHands > 6):
         numHands = eval(input('Enter number of hands to play: '))
-    game = Poker(numHands)
+    game = Bluff(numHands)
     game.play()
 
     print('\n')
@@ -205,7 +205,7 @@ def customMatchup():
       hands.append(hand)
 
     numHands = len(hands)
-    game = Poker(numHands)
+    game = Bluff(numHands)
     # game.play()
 
     print('\n')
@@ -238,9 +238,9 @@ def detectRank(card):
 
 def checkCustomHand(num):
     hand = []
-    for i in range(num):
+    for _ in range(num):
         card = input('Enter card: ')
         rank = detectRank(card)
         hand.append(Card(rank))
-    game = Poker(1)
+    game = Bluff(1)
     game.startGame(hand)
