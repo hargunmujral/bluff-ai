@@ -250,11 +250,6 @@ def checkCustomHand(num):
     game = Poker(1)
     game.startGame(hand)
 
-
-# main()
-
-# checkCustomHand()
-
 def main():
     choice = input('Enter 1 to play a game or 2 to check a custom hand: ')
     if choice == '1':
